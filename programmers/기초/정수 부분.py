@@ -1,3 +1,5 @@
 def solution(flo):
-    answer = int(flo)
-    return answer
+    return int(flo)
+
+
+print(solution(3.13))
