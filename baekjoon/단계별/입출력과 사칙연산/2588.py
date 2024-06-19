@@ -1,0 +1,7 @@
+x = int(input())
+y = input()
+arr = list(y)
+print(x*int(arr[2]))
+print(x*int(arr[1]))
+print(x*int(arr[0]))
+print(x*int(y))
