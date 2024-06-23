@@ -1,4 +1,4 @@
-# 첫번째 풀이
+# 첫번째 풀이 - 오답
 # def solution(n):
 #     answer = []
 #     moks = [i for i in range(1, n+1) if n % i == 0]
@@ -12,21 +12,30 @@
 #     return sorted(answer)
 
 
-# 두번째 풀이
+# 두번째 풀이 - 오답
+# def solution(n):
+#     answer = []
+#     i = 2
+#     if n == 2:
+#         answer.append(2)
+#     while i * i <= n:
+#         if n % i == 0:
+#             n = n // i
+#             answer.append(i)
+#         else:
+#             i += 1
+#     return sorted(answer)
+
+
+# 세번째 풀이 - 정답
 def solution(n):
     answer = []
-    i = 2
-    if n == 2:
-        answer.append(2)
-    while i * i <= n:
-        if n % i == 0:
-            n = n // i
+    for i in range(2, n+1):
+        while n % i == 0:
+            n /= i
             answer.append(i)
-        else:
-            i += 1
-    return sorted(answer)
-
-# 세번째 풀이
+    answer = sorted(list(set(answer)))
+    return answer
 
 
 print(solution(2))
