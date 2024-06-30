@@ -37,8 +37,11 @@ def solution(lines):
         if current_overlap > 1:  # 두 개 이상의 선분이 겹치는 경우
             overlap_length += point - prev_point
 
+        # 선분이 겹치는 경우를 파악하기 위해 value 값 더하기
         current_overlap += value
+        # 현재 포인트 저장
         prev_point = point
+        print(f'현재 위치 {point} / 겹치는 선분 수 {current_overlap} / 누적된 겹치는 선분의 길이 {overlap_length}')
 
     return overlap_length
 
