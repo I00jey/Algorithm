@@ -1,26 +1,26 @@
 # solved.ac
 
 # 내 풀이 (오답)
-# import sys
-#
-# n = int(sys.stdin.readline())
-# numbers = []
-#
-# for i in range(n):
-#     numbers.append(int(sys.stdin.readline()))
-#
-# numbers.sort()
-# none_avg = round(n * 0.15)
-# # print('평균계산에서 제외할 사람 수', none_avg)
-#
-# numbers_jeolsa = numbers[none_avg+1: len(numbers)-none_avg]
-#
-# # / 나누기 연산할 때는, 항상 ZeroDivisionError 주의
-# if len(numbers_jeolsa) > 0:
-#     avg = round(sum(numbers_jeolsa)/len(numbers_jeolsa))
-#     print(avg)
-# else:
-#     print(0)
+import sys
+
+n = int(sys.stdin.readline())
+numbers = []
+
+for i in range(n):
+    numbers.append(int(sys.stdin.readline()))
+
+numbers.sort()
+none_avg = round(n * 0.15)
+# print('평균계산에서 제외할 사람 수', none_avg)
+
+numbers_jeolsa = numbers[none_avg+1: len(numbers)-none_avg]
+
+# / 나누기 연산할 때는, 항상 ZeroDivisionError 주의
+if len(numbers_jeolsa) > 0:
+    avg = round(sum(numbers_jeolsa)/len(numbers_jeolsa))
+    print(avg)
+else:
+    print(0)
 
 
 # -----------------------------------------------------------
