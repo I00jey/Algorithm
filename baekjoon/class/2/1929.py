@@ -1,22 +1,22 @@
 # 소수 구하기
 
 # 내 풀이 (시간 초과)
-# import sys
-# m, n = map(int, sys.stdin.readline().split())
-# yak_su = []
-# numbers = [i for i in range(m, n+1)]
-#
-# for i in range(m, n+1):
-#     for j in range(2, int(n**0.5)+1):
-#         if i % j == 0:
-#             yak_su.append(i)
-#
-# so_su = [i for i in numbers if i not in yak_su]
-# # print(set(yak_su))
-# # print(so_su)
-#
-# for i in so_su:
-#     print(i)
+import sys
+m, n = map(int, sys.stdin.readline().split())
+yak_su = []
+numbers = [i for i in range(m, n+1)]
+
+for i in range(m, n+1):
+    for j in range(2, int(n**0.5)+1):
+        if i % j == 0:
+            yak_su.append(i)
+
+so_su = [i for i in numbers if i not in yak_su]
+# print(set(yak_su))
+# print(so_su)
+
+for i in so_su:
+    print(i)
 
 
 
