@@ -18,14 +18,14 @@
 #
 # # 중앙값
 # print(sorted(numbers)[n//2])
-
+#
 # # 최빈값
 # count_lis = [[] for _ in range(n+1)]
 # for i in numbers:
 #     count_lis[numbers.count(i)].append(i)
-# 리스트.count()
-# 각 리스트에서 각 숫자의 빈도를 구할 때, 전체 리스트를 순회하기 때문에 => O(n^2)
-
+# # 리스트.count()
+# # 각 리스트에서 각 숫자의 빈도를 구할 때, 전체 리스트를 순회하기 때문에 => O(n^2)
+#
 # count_lis.reverse()
 # # print(count_lis)
 # for count in count_lis:
@@ -39,7 +39,7 @@
 #             print(sorted(set(count))[1])
 #         break
 # # print(count_lis)
-
+#
 # # 범위
 # print(max(numbers)-min(numbers))
 
@@ -171,7 +171,8 @@
 # [('l', 3), ('o', 2), ('h', 1), ('e', 1), (' ', 1), ('w', 1), ('r', 1), ('d', 1)]
 
 # 인자로 숫자 K를 넘기면 그 숫자 만큼만 리턴하기 때문에, 가장 개수가 많은 K개의 데이터
-#Counter('hello world').most_common(k)
+
+
 
 
 # 산술 연산자 활용
