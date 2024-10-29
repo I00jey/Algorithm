@@ -1,18 +1,53 @@
-# 피보나치 함수
-
 
 
 t = int(input())
-# 출력 횟수 저장
-fibo_print_list = [[0, 0] for _ in range(t)]
-for i in range(t):
+fibo_list = [[0, 0] for _ in range(t)]
 
-    def fibonacci(n):
-        if n == 0:
-            print("0")
-            return 0
-        elif n == 1:
-            print("1")
-            return 1
-        else:
-            return fibonacci(n‐1) + fibonacci(n‐2)
+# DP 배열을 사용하여 메모이제이션 적용
+# [[0번 출력 수, 1번 출력 수]]
+dp = [[1, 0], [0, 1]] + [[0, 0] for _ in range(40)]
+# fibonacci(0) => 0 : 1번 출력, 1 : 0번 출력 => [1, 0]
+# fibonacci(1) => 0 : 0번 출력, 1 : 1번 출력 => [0, 1]
+
+# 0 <= n <= 40
+for i in range(2, 41):
+    dp[i][0] = dp[i-1][0] + dp[i-2][0]
+    dp[i][1] = dp[i-1][1] + dp[i-2][1]
+
+for i in range(t):
+    test = int(input())
+    fibo_list[i][0] = dp[test][0]
+    fibo_list[i][1] = dp[test][1]
+
+for a, b in fibo_list:
+    print(f"{a} {b}")
+
+
+# 메모이제이션 Memoization
+# : 이미 계산한 값을 저장해두었다가, 동일한 계산이 필요할 때 저장된 값을 재사용하여 연산을 최적화하는 기법
+# 💡특히, 재귀함수와 같이 반복되는 계산에 많이 발생하는 알고리즘에 유용
+# 💡DP 다이나믹 프로그래밍의 핵심 개념 중 하나
+
+# 원리
+# 1. 기억 저장소 준비 (배열, 딕셔너리)
+# => 함수가 값을 계산할 때마다 저장할 수 있는 기억 저장소 준비
+# 2. 이미 계산된 값 확인
+# => 함수가 호출될 때, 먼저 기억 저장소에 해당 값이 존재하는 지 확인
+# => 존재한다면, 저장되었던 값 그대로 반환
+# 3. 새로운 값 계산 및 저장
+# => 저장된 값이 없다면, 필요한 계산을 수행한 후 그 결과를 기억 저장소에 저장
+
+# 메모이제이션을 이용한 비보나치 함수 구현 예시
+# # 메모이제이션을 위한 딕셔너리 초기화
+# memo = {0: 0, 1: 1}
+#
+# def fibo(n):
+#     # 이미 계산된 값이 있는 경우
+#     if n in memo:
+#         return memo[n]
+#
+#     # 새로운 값 계산 후 메모에 저장
+#     memo[n] = fibo(n-1) + fibo(n-2)
+#     return memo[n]
+#
+# print(fibo(10))  # 10번째 피보나치 수 출력
