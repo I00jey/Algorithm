@@ -1,5 +1,33 @@
 # 계단 오르기
 
+# -------------------------------------------------------
+# 내 풀이
+
+# 계단 수
+n = int(input())
+stairs = []
+# 계단 입력받기
+for i in range(n):
+    stairs.append(int(input()))
+
+# 계단 위에서부터 내려오기
+stairs.reverse()
+# print(stairs)
+
+stairs.append(0)
+score = stairs[0]
+i = 0
+while i <= n-2:
+    score += max(stairs[i+1], stairs[i+2])
+    if max(stairs[i+1], stairs[i+2]) == stairs[i+1]:
+        i += 1
+    else:
+        i += 2
+
+print(score)
+
+# -------------------------------------------------------
+# 다른 풀이
 # 계단 수 입력
 n = int(input())
 # 계단 값 초기화
@@ -24,7 +52,5 @@ for i in range(4, n+1):
     # >> i-3 단을 밝고 순서대로 i-1, i단을 밟은 경우
     # dp[i-2] + stairs[i]
     # >> i-2 단까지 밟고 i-1을 뛰어넘고 바로 i단을 밟은 경우
-
     # 이 두가지 경우 중 점수의 최댓값을 해당 인덱스에 저장
-
 print(dp[n])
