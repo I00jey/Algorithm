@@ -35,47 +35,75 @@
 
 # ---------------------------------------------------------------------
 # 다른 풀이
+# from collections import deque
+#
+# # 컴퓨터의 수
+# computer = int(input())
+# # 연결 선의 수
+# edge = int(input())
+#
+# # 그래프 초기화
+# graph = {i: [] for i in range(1, computer+1)}
+# for _ in range(edge):
+#     a, b = map(int, input().split())
+#     graph[a].append(b)
+#     graph[b].append(a)
+#
+# visitied = set()
+#
+# # BFS 탐색
+# queue = deque([1])
+# while queue:
+#     current = queue.popleft()
+#     # 감염되지 않은(= 방문하지 않은) 컴퓨터일 경우
+#     if current not in visitied:
+#         # 감염된 컴퓨터 추가
+#         visitied.add(current)
+#         # 연결된 컴퓨터 추가
+#         queue.extend(graph[current])
+#     # print('현재까지 감염된 컴퓨터 : ', visitied)
+#     # print('현재 연결 컴퓨터 : ', queue)
+#
+# # DFS 탐색
+# stack = [1] # 깊이우선탐색은 스택 사용
+# while stack:
+#     current = stack.pop()
+#     # 감염되지 않은 컴퓨터일 경우
+#     if current not in visitied:
+#         # 감염된 컴퓨터 추가
+#         visitied.add(current)
+#         # 감염된 컴퓨터와 연결된 컴퓨터들을 스택에 추가
+#         stack.extend(graph[current])
+#
+#
+# # 1을 제외한 감염된 컴퓨터의 수
+# print(len(visitied)-1)
+
+#----------------------------------------------------------------
+# 다시 풀어보기
+
 from collections import deque
 
-# 컴퓨터의 수
+# 컴퓨터 수 입력
 computer = int(input())
-# 연결 선의 수
+# 연결 입력
 edge = int(input())
-
 # 그래프 초기화
-graph = {i: [] for i in range(1, computer+1)}
-for _ in range(edge):
+graph = [[] for i in range(computer+1)]
+# 그래프 입력 및 연결 정리
+for i in range(edge):
     a, b = map(int, input().split())
     graph[a].append(b)
     graph[b].append(a)
 
-visitied = set()
+visited = set()
+warms = deque([1])
 
-# BFS 탐색
-queue = deque([1])
-while queue:
-    current = queue.popleft()
-    # 감염되지 않은(= 방문하지 않은) 컴퓨터일 경우
-    if current not in visitied:
-        # 감염된 컴퓨터 추가
-        visitied.add(current)
-        # 연결된 컴퓨터 추가
-        queue.extend(graph[current])
-    # print('현재까지 감염된 컴퓨터 : ', visitied)
-    # print('현재 연결 컴퓨터 : ', queue)
+while warms:
+    current = warms.pop()
+    if current not in visited:
+        visited.add(current)
+        warms.extend(graph[current])
 
-# DFS 탐색
-stack = [1] # 깊이우선탐색은 스택 사용
-while stack:
-    current = stack.pop()
-    # 감염되지 않은 컴퓨터일 경우
-    if current not in visitied:
-        # 감염된 컴퓨터 추가
-        visitied.add(current)
-        # 감염된 컴퓨터와 연결된 컴퓨터들을 스택에 추가
-        stack.extend(graph[current])
-
-
-# 1을 제외한 감염된 컴퓨터의 수
-print(len(visitied)-1)
+print(len(visited)-1)
 
