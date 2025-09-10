@@ -65,7 +65,7 @@
 #     # print('현재 연결 컴퓨터 : ', queue)
 #
 # # DFS 탐색
-# stack = [1] # 깊이우선탐색은 스택 사용
+# stack = [1] # 깊이우선탐색은 스택큐 사용
 # while stack:
 #     current = stack.pop()
 #     # 감염되지 않은 컴퓨터일 경우

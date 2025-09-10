@@ -1,4 +1,4 @@
-# # 스택 수열
+# # 스택큐 수열
 #
 # # 내 풀이 (시간 초과)
 # import sys
@@ -15,20 +15,20 @@
 #
 # # print("수열 => ", series)
 #
-# # 스택 리스트
+# # 스택큐 리스트
 # stack = []
 # # push & pop 연산 리스트
 # push_pop = []
 # # push 수 리스트
 # push = []
 #
-# # 스택 초기화
+# # 스택큐 초기화
 # for i in range(1, series[0]+1):
 #     stack.append(i)
 #     push_pop.append("+")
 #     push.append(i)
 #
-# # print("스택 초기화 => ", stack)
+# # print("스택큐 초기화 => ", stack)
 #
 # # push & pop 연산 순서 구하기
 # for idx, num in enumerate(series):
@@ -87,7 +87,7 @@ n = int(input())
 # 수열 입력 받기
 series = [int(input()) for _ in range(n)]
 
-# 스택 리스트와 연산 기록
+# 스택큐 리스트와 연산 기록
 stack = []
 push_pop = []
 push = []

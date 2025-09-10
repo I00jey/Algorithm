@@ -1,4 +1,4 @@
-# 스택
+# 스택큐
 
 n = int(input())
 stack = []
